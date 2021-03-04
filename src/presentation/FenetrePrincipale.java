@@ -4,6 +4,9 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import metier.Catalogue;
+import metier.I_Catalogue;
+
 
 
 public class FenetrePrincipale extends JFrame implements ActionListener,
@@ -75,11 +78,17 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
 /* tabProduits permet de tester le fonctionnement des fenêtres avec un tableau de noms de produits "en dur"
    Quand l'application fonctionnera, il faudra bien sûr récupérer les noms des produits dans le Catalogue */
 		String[] tabProduits = new String[] { "Mars", "Raider", "Twix", "Treets", "M&M's", "Smarties" };
+		I_Catalogue cat = (I_Catalogue) new Catalogue();
+		cat.addProduit("Treets", 10, 1);
+		cat.addProduit("Mars", 2, 5);
+		cat.addProduit("Coca", 1, 15);
+		cat.addProduit("Crayon", 7, 2);
+		cat.addProduit("Bepis", 3, 1);
 /* Même chose pour tabCategories (partie 4) */ 		
 //		String[] tabCategories = new String[] {"Bio", "Luxe" };
 		
 		if (e.getSource() == btAfficher)
-			new FenetreAffichage("ajourd'hui nous allons faire de la programmation en 5 couches");
+			new FenetreAffichage(cat.toString());
 		if (e.getSource() == btNouveauProduit)
 //			new FenetreNouveauProduit(tabCategories);
 			new FenetreNouveauProduit();
