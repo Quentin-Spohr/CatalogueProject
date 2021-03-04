@@ -1,4 +1,4 @@
-package App;
+package metier;
 
 public interface I_Produit {
 

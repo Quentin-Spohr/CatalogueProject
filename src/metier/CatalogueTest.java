@@ -1,4 +1,4 @@
-package App;
+package metier;
 
 import static org.junit.Assert.*;
 

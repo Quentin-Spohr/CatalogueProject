@@ -1,34 +1,37 @@
-package App;
+package presentation;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class FenetreSuppressionProduit extends JFrame implements ActionListener {
+public class FenetreVente extends JFrame implements ActionListener {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JButton btSupprimer;
+	private JButton btVente;
+	private JTextField txtQuantite;
 	private JComboBox<String> combo;
-	
-	public FenetreSuppressionProduit(String lesProduits[]) {
-		
-		setTitle("Suppression produit");
-		setBounds(500, 500, 200, 105);
+
+	public FenetreVente(String[] lesProduits) {
+		setTitle("Vente");
+		setBounds(500, 500, 200, 125);
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new FlowLayout());
-		btSupprimer = new JButton("Supprimer");
+		btVente = new JButton("Vente");
+		txtQuantite = new JTextField(5);
+		txtQuantite.setText("0");
 
 		combo = new JComboBox<String>(lesProduits);
 		combo.setPreferredSize(new Dimension(100, 20));
 		contentPane.add(new JLabel("Produit"));
 		contentPane.add(combo);
-		contentPane.add(btSupprimer);
+		contentPane.add(new JLabel("Quantité vendue"));
+		contentPane.add(txtQuantite);
+		contentPane.add(btVente);
 
-		btSupprimer.addActionListener(this);
-
+		btVente.addActionListener(this);
 		this.setVisible(true);
 	}
 

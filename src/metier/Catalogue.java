@@ -1,4 +1,4 @@
-package App;
+package metier;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

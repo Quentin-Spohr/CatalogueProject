@@ -1,4 +1,4 @@
-package App;
+package presentation;
 
 import java.awt.*;
 import java.awt.event.*;
