@@ -8,7 +8,18 @@ import java.util.List;
 public class Catalogue implements I_Catalogue{
 	
 	private List<I_Produit> produits;
+	private static Catalogue catalogue; 
 
+	public static Catalogue getCatalogue() {
+		if (catalogue == null) {
+			catalogue=new Catalogue();
+			return catalogue;
+		}else {
+			return catalogue;
+		}
+		
+	}
+	
 	public Catalogue() {
 		this.produits= new ArrayList<>();
 	}

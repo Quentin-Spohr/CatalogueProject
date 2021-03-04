@@ -78,7 +78,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
 /* tabProduits permet de tester le fonctionnement des fenêtres avec un tableau de noms de produits "en dur"
    Quand l'application fonctionnera, il faudra bien sûr récupérer les noms des produits dans le Catalogue */
 		String[] tabProduits = new String[] { "Mars", "Raider", "Twix", "Treets", "M&M's", "Smarties" };
-		I_Catalogue cat = (I_Catalogue) new Catalogue();
+		I_Catalogue cat=Catalogue.getCatalogue();
 		cat.addProduit("Treets", 10, 1);
 		cat.addProduit("Mars", 2, 5);
 		cat.addProduit("Coca", 1, 15);

@@ -4,6 +4,10 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import application.ControleNouveauProduit;
+import metier.Catalogue;
+import metier.I_Catalogue;
+
 public class FenetreNouveauProduit extends JFrame implements ActionListener {
 
 	/**
@@ -19,6 +23,7 @@ public class FenetreNouveauProduit extends JFrame implements ActionListener {
 //	public FenetreNouveauProduit(String[] lesCategories) {
 	public FenetreNouveauProduit() {	
 
+		
 		setTitle("Creation Produit");
 		setBounds(500, 500, 200, 250);
 		Container contentPane = getContentPane();
@@ -52,6 +57,12 @@ public class FenetreNouveauProduit extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		I_Catalogue cat=Catalogue.getCatalogue();
+		if (e.getSource() == btValider) {
+			if(ControleNouveauProduit.AjouterProduit(txtNom.getText(), txtPrixHT.getText(), txtQte.getText(),cat)) {
+				System.out.print(Catalogue.getCatalogue().toString());
+			}
+		}
 		this.dispose();
 	}
 
