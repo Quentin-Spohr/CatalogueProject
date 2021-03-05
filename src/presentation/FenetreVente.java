@@ -4,6 +4,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import application.ControleAchat;
+import application.ControleVente;
+import metier.Catalogue;
+import metier.I_Catalogue;
+
 public class FenetreVente extends JFrame implements ActionListener {
 
 	/**
@@ -14,7 +19,11 @@ public class FenetreVente extends JFrame implements ActionListener {
 	private JTextField txtQuantite;
 	private JComboBox<String> combo;
 
-	public FenetreVente(String[] lesProduits) {
+	public FenetreVente() {
+		
+		I_Catalogue cat=Catalogue.getCatalogue();
+		String[] lesProduits=cat.getNomProduits();
+		
 		setTitle("Vente");
 		setBounds(500, 500, 200, 125);
 		Container contentPane = getContentPane();
@@ -27,7 +36,7 @@ public class FenetreVente extends JFrame implements ActionListener {
 		combo.setPreferredSize(new Dimension(100, 20));
 		contentPane.add(new JLabel("Produit"));
 		contentPane.add(combo);
-		contentPane.add(new JLabel("Quantité vendue"));
+		contentPane.add(new JLabel("Quantitï¿½ vendue"));
 		contentPane.add(txtQuantite);
 		contentPane.add(btVente);
 
@@ -36,6 +45,10 @@ public class FenetreVente extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		I_Catalogue cat=Catalogue.getCatalogue();
+		if (e.getSource() == btVente) {
+			ControleVente.vendreProduit((String)combo.getSelectedItem(),txtQuantite.getText(),cat);
+		}
 		this.dispose();
 	}
 

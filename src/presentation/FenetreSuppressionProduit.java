@@ -4,6 +4,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import application.ControleNouveauProduit;
+import application.ControleSuppression;
+import metier.Catalogue;
+import metier.I_Catalogue;
+
 public class FenetreSuppressionProduit extends JFrame implements ActionListener {
 
 	/**
@@ -13,7 +18,10 @@ public class FenetreSuppressionProduit extends JFrame implements ActionListener 
 	private JButton btSupprimer;
 	private JComboBox<String> combo;
 	
-	public FenetreSuppressionProduit(String lesProduits[]) {
+	public FenetreSuppressionProduit() {
+		
+		I_Catalogue cat=Catalogue.getCatalogue();
+		String[] lesProduits=cat.getNomProduits();
 		
 		setTitle("Suppression produit");
 		setBounds(500, 500, 200, 105);
@@ -33,6 +41,11 @@ public class FenetreSuppressionProduit extends JFrame implements ActionListener 
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		I_Catalogue cat=Catalogue.getCatalogue();
+		if (e.getSource() == btSupprimer) {
+			ControleSuppression.supprimerProduit((String)combo.getSelectedItem(), cat);
+		}
+		
 		this.dispose();
 	}
 
