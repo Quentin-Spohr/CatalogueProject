@@ -1,7 +1,7 @@
 package application;
 
 import metier.I_Catalogue;
-import metier.I_Produit;
+//import metier.I_Produit;
 
 public class ControleNouveauProduit {
 	

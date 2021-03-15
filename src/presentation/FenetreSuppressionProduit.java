@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import application.ControleNouveauProduit;
 import application.ControleSuppression;
 import metier.Catalogue;
 import metier.I_Catalogue;
@@ -42,8 +41,10 @@ public class FenetreSuppressionProduit extends JFrame implements ActionListener 
 
 	public void actionPerformed(ActionEvent e) {
 		I_Catalogue cat=Catalogue.getCatalogue();
+		int index = combo.getSelectedIndex();
 		if (e.getSource() == btSupprimer) {
 			ControleSuppression.supprimerProduit((String)combo.getSelectedItem(), cat);
+			combo.removeItemAt(index);
 		}
 		
 		this.dispose();

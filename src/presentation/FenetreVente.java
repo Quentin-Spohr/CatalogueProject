@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import application.ControleAchat;
 import application.ControleVente;
 import metier.Catalogue;
 import metier.I_Catalogue;

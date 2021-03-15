@@ -77,12 +77,16 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
 
 /* tabProduits permet de tester le fonctionnement des fen�tres avec un tableau de noms de produits "en dur"
    Quand l'application fonctionnera, il faudra bien s�r r�cup�rer les noms des produits dans le Catalogue */
+		//On peut déclarer le catalogue ici. PAR CONTRE, il ne faut pas déclarer les ajouts de produit ici.......
+		/*
 		I_Catalogue cat=Catalogue.getCatalogue();
 		cat.addProduit("Treets", 10, 1);
 		cat.addProduit("Mars", 2, 5);
 		cat.addProduit("Coca", 1, 15);
 		cat.addProduit("Crayon", 7, 2);
 		cat.addProduit("Bepis", 3, 1);
+		*/
+		I_Catalogue cat=Catalogue.getCatalogue();
 /* M�me chose pour tabCategories (partie 4) */ 		
 //		String[] tabCategories = new String[] {"Bio", "Luxe" };
 		
@@ -123,6 +127,16 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
 	
 	public static void main(String[] args) {
 		new FenetrePrincipale();
+		//...Mais plutôt là. C'est pour eviter que le "cat.addProduit" ne se déclenche à chaque fois que l'on revient sur la fenétre principale,
+		//je te laisse tester la différence des 2 méthodes de déclaration "catalogue+produit" en testant la fenétre "supprimer produit" si tu ne vois ce que je veux dire.
+		
+		I_Catalogue cat=Catalogue.getCatalogue();
+		cat.addProduit("Treets", 10, 1);
+		cat.addProduit("Mars", 2, 5);
+		cat.addProduit("Coca", 1, 15);
+		cat.addProduit("Crayon", 7, 2);
+		cat.addProduit("Bepis", 3, 1);
+		
 	}
 
 }

@@ -2,7 +2,6 @@ package metier;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Catalogue implements I_Catalogue{
@@ -132,7 +131,7 @@ public class Catalogue implements I_Catalogue{
 		for (I_Produit produit : produits) {
 			catToString=catToString + produit.toString()+"\n";	
 		}	
-		catToString=catToString + ("\n"+"Montant total TTC du stock : "+df.format(getMontantTotalTTC())+" €");
+		catToString=catToString + ("\n"+"Montant total TTC du stock : "+df.format(getMontantTotalTTC())+" ï¿½");
 		return catToString;
 	}
 	
