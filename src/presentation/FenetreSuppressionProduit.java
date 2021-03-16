@@ -23,9 +23,10 @@ public class FenetreSuppressionProduit extends JFrame implements ActionListener 
 		String[] lesProduits=cat.getNomProduits();
 		
 		setTitle("Suppression produit");
-		setBounds(500, 500, 200, 105);
+		setBounds(500, 500, 300, 100);
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new FlowLayout());
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		btSupprimer = new JButton("Supprimer");
 
 		combo = new JComboBox<String>(lesProduits);

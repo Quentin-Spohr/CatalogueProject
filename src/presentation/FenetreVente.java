@@ -24,9 +24,10 @@ public class FenetreVente extends JFrame implements ActionListener {
 		String[] lesProduits=cat.getNomProduits();
 		
 		setTitle("Vente");
-		setBounds(500, 500, 200, 125);
+		setBounds(500, 500, 225, 125);
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new FlowLayout());
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		btVente = new JButton("Vente");
 		txtQuantite = new JTextField(5);
 		txtQuantite.setText("0");
@@ -35,7 +36,7 @@ public class FenetreVente extends JFrame implements ActionListener {
 		combo.setPreferredSize(new Dimension(100, 20));
 		contentPane.add(new JLabel("Produit"));
 		contentPane.add(combo);
-		contentPane.add(new JLabel("Quantit� vendue"));
+		contentPane.add(new JLabel("Quantité vendue"));
 		contentPane.add(txtQuantite);
 		contentPane.add(btVente);
 

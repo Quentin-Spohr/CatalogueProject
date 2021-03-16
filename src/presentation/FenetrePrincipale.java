@@ -27,17 +27,22 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
 
 	
 	public FenetrePrincipale() {
+		getContentPane().setBackground(Color.LIGHT_GRAY);
 		
 		setTitle("exercice Produits");
 		setBounds(500, 500, 320, 250);
 		JPanel panAffichage = new JPanel();
+		panAffichage.setBackground(Color.LIGHT_GRAY);
 		JPanel panNouveauSupprimerProduit = new JPanel();
+		panNouveauSupprimerProduit.setBackground(Color.LIGHT_GRAY);
 //		JPanel panNouveauSupprimerCategorie = new JPanel();
 		JPanel panAchatVente = new JPanel();
+		panAchatVente.setBackground(Color.LIGHT_GRAY);
 		JPanel panQuitter = new JPanel();
+		panQuitter.setBackground(Color.LIGHT_GRAY);
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new FlowLayout());
-		btAfficher = new JButton("Quantit�s en stock");
+		btAfficher = new JButton("Quantités en stock");
 		btNouveauProduit = new JButton("Nouveau Produit");
 		btSupprimerProduit = new JButton("Supprimer Produit");
 //		btNouvelleCategorie = new JButton("Nouvelle Categorie");
@@ -75,8 +80,8 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
 
 	public void actionPerformed(ActionEvent e) {
 
-/* tabProduits permet de tester le fonctionnement des fen�tres avec un tableau de noms de produits "en dur"
-   Quand l'application fonctionnera, il faudra bien s�r r�cup�rer les noms des produits dans le Catalogue */
+/* tabProduits permet de tester le fonctionnement des fenêtres avec un tableau de noms de produits "en dur"
+   Quand l'application fonctionnera, il faudra bien sur récuperer les noms des produits dans le Catalogue */
 		//On peut déclarer le catalogue ici. PAR CONTRE, il ne faut pas déclarer les ajouts de produit ici.......
 		/*
 		I_Catalogue cat=Catalogue.getCatalogue();

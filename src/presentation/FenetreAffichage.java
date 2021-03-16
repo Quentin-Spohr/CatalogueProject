@@ -19,14 +19,19 @@ public class FenetreAffichage extends JFrame implements ActionListener {
 		JPanel panHaut = new JPanel();
 		JPanel panBas = new JPanel();
 		panHaut.setLayout(new BorderLayout());
+		panHaut.setBackground(Color.LIGHT_GRAY);
 		panBas.setLayout(new FlowLayout());
+		panBas.setBackground(Color.LIGHT_GRAY);
 		
 		JTextArea jtaSortie = new JTextArea(texte,10,5);
+		jtaSortie.setEditable(false);
+		jtaSortie.setBackground(Color.LIGHT_GRAY);
 		btOK = new JButton("Quitter");
 		
 		
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new BorderLayout());
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		
 		panHaut.add(jtaSortie);
 		panBas.add(btOK);
