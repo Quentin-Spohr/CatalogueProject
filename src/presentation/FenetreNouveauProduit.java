@@ -47,6 +47,9 @@ public class FenetreNouveauProduit extends JFrame implements ActionListener {
 		JLabel labQte = new JLabel("Quantité en stock");
 		labQte.setBounds(99, 121, 100, 14);
 		contentPane.add(labQte);
+		txtQte = new JTextField(15);
+		txtQte.setBounds(73, 146, 126, 20);
+		contentPane.add(txtQte);
 //		JLabel labCategorie = new JLabel("Categorie");
 
 //		combo = new JComboBox<String>(lesCategories);
@@ -58,9 +61,6 @@ public class FenetreNouveauProduit extends JFrame implements ActionListener {
 		btValider = new JButton("Valider");
 		btValider.setBounds(99, 177, 85, 23);
 		contentPane.add(btValider);
-		txtQte = new JTextField(15);
-		txtQte.setBounds(73, 146, 126, 20);
-		contentPane.add(txtQte);
 
 		btValider.addActionListener(this);
 		setVisible(true);
