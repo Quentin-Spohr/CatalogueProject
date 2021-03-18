@@ -27,7 +27,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
 	
 	public FenetrePrincipale() {
 
-		setTitle("exercice Produits");
+		setTitle("Exercice Produits");
 		setBounds(500, 500, 320, 250);
 		Container contentPane = getContentPane();
 		contentPane.setBackground(Color.LIGHT_GRAY);

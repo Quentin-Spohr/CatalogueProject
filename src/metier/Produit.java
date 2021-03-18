@@ -76,8 +76,8 @@ public class Produit implements I_Produit {
 	public String toString() {
 		DecimalFormat df = new DecimalFormat("0.00");
 		
-		String produitToString="  "; 
-		produitToString=produitToString + (getNom()+" - prix HT : "+df.format(prixUnitaireHT)+" â‚¬ - prix TTC : "+df.format(prixUnitaireTTC)+" â‚¬ - quantitÃ© en stock : "+getQuantite());	
+		String produitToString=""; 
+		produitToString=produitToString + (getNom()+" - prix HT : "+df.format(prixUnitaireHT)+" € - prix TTC : "+df.format(prixUnitaireTTC)+" € - quantité en stock : "+getQuantite());	
 		return produitToString;
 	}	
 

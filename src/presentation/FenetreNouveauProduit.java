@@ -23,7 +23,7 @@ public class FenetreNouveauProduit extends JFrame implements ActionListener {
 //	public FenetreNouveauProduit(String[] lesCategories) {
 	public FenetreNouveauProduit() {
 		
-		setTitle("CrÃ©ation Produit");
+		setTitle("Création Produit");
 		setBounds(500, 500, 300, 250);
 		Container contentPane = getContentPane();
 		contentPane.setBackground(Color.LIGHT_GRAY);	
@@ -40,16 +40,16 @@ public class FenetreNouveauProduit extends JFrame implements ActionListener {
 		labPrixHT.setBounds(99, 65, 85, 14);
 		contentPane.add(labPrixHT);
 		txtPrixHT = new JTextField(15);
-		txtPrixHT.setToolTipText("Le prix doit Ãªtre obligatoirement positif et de forme : XX.XX");
-		txtPrixHT.setText("00.00");
+		txtPrixHT.setToolTipText("Le prix doit être obligatoirement positif et de forme : X.XX");
+		txtPrixHT.setText("0.00");
 		txtPrixHT.setBounds(73, 90, 126, 20);
 		contentPane.add(txtPrixHT);
 		
-		JLabel labQte = new JLabel("QuantitÃ© en stock");
+		JLabel labQte = new JLabel("Quantité en stock");
 		labQte.setBounds(99, 121, 100, 14);
 		contentPane.add(labQte);
 		txtQte = new JTextField(15);
-		txtQte.setToolTipText("Le nombre doit Ãªtre obligatoirement positif");
+		txtQte.setToolTipText("Le nombre doit être obligatoirement positif");
 		txtQte.setText("0");
 		txtQte.setBounds(73, 146, 126, 20);
 		contentPane.add(txtQte);
