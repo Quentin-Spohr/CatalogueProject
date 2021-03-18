@@ -8,7 +8,6 @@ import metier.Catalogue;
 import metier.I_Catalogue;
 
 
-
 public class FenetrePrincipale extends JFrame implements ActionListener,
 		WindowListener {
 
@@ -27,21 +26,27 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
 
 	
 	public FenetrePrincipale() {
-		getContentPane().setBackground(Color.LIGHT_GRAY);
-		
+
 		setTitle("exercice Produits");
 		setBounds(500, 500, 320, 250);
+		Container contentPane = getContentPane();
+		contentPane.setBackground(Color.LIGHT_GRAY);
+		contentPane.setLayout(new FlowLayout());
+		
 		JPanel panAffichage = new JPanel();
 		panAffichage.setBackground(Color.LIGHT_GRAY);
+		
 		JPanel panNouveauSupprimerProduit = new JPanel();
 		panNouveauSupprimerProduit.setBackground(Color.LIGHT_GRAY);
+		
 //		JPanel panNouveauSupprimerCategorie = new JPanel();
+		
 		JPanel panAchatVente = new JPanel();
 		panAchatVente.setBackground(Color.LIGHT_GRAY);
+		
 		JPanel panQuitter = new JPanel();
 		panQuitter.setBackground(Color.LIGHT_GRAY);
-		Container contentPane = getContentPane();
-		contentPane.setLayout(new FlowLayout());
+
 		btAfficher = new JButton("Quantités en stock");
 		btNouveauProduit = new JButton("Nouveau Produit");
 		btSupprimerProduit = new JButton("Supprimer Produit");
@@ -50,6 +55,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
 		btAchat = new JButton("Achat Produits");
 		btVente = new JButton("Vente Produits");
 		btQuitter = new JButton("Quitter");
+		
 		panAffichage.add(btAfficher);
 		panNouveauSupprimerProduit.add(btNouveauProduit); 
 		panNouveauSupprimerProduit.add(btSupprimerProduit);
@@ -92,7 +98,7 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
 		cat.addProduit("Bepis", 3, 1);
 		*/
 		I_Catalogue cat=Catalogue.getCatalogue();
-/* M�me chose pour tabCategories (partie 4) */ 		
+/* Même chose pour tabCategories (partie 4) */ 		
 //		String[] tabCategories = new String[] {"Bio", "Luxe" };
 		
 		if (e.getSource() == btAfficher)
@@ -111,13 +117,13 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
 		if (e.getSource() == btVente)
 			new FenetreVente();
 		if (e.getSource() == btQuitter){
-			System.out.println("Au revoir");
+			System.out.println("Au revoir\n");
 			System.exit(0);
 		}	
 	}
 
 	public void windowClosing(WindowEvent arg0) {
-		System.out.println("Au revoir");
+		System.out.println("\nAu revoir\n");
 		System.exit(0);
 	}
 
