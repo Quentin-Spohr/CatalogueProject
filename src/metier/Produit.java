@@ -4,18 +4,13 @@ import java.text.DecimalFormat;
 
 public class Produit implements I_Produit {
 
-
-	private int quantiteStock;
-	
+	private int quantiteStock;	
 	private String nom;
-	
 	private double prixUnitaireHT;
-	
 	private double tauxTVA = 0.2;
-
 	private double prixUnitaireTTC;
-	
 	private double prixStockTTC;
+	
 	
 	public Produit(String nom, double prixHT, int quantite) {
 		this.nom = nom.trim().replace("\t", " ");

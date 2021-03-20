@@ -55,10 +55,10 @@ public class FenetreMessageErreur extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btOK) {
 			labErreur.setText("");
-			contentPane.remove(labErreur);
-			this.dispose();
+			contentPane.remove(labErreur);	
 		}
 		
+		this.dispose();
 	}
 	
 }

@@ -70,10 +70,11 @@ public class FenetreNouveauProduit extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		I_Catalogue cat=Catalogue.getCatalogue();
 		if (e.getSource() == btValider) {
+			I_Catalogue cat=Catalogue.getCatalogue();
 			ControleNouveauProduit.AjouterProduit(txtNom.getText(), txtPrixHT.getText(), txtQte.getText(),cat);
 		}
+		
 		this.dispose();
 	}
 
