@@ -1,8 +1,8 @@
 package application;
 
 import metier.I_Catalogue;
+import presentation.FenetreMessageErreur;
 //import metier.I_Produit;
-import presentation.FenetreNouveauProduitErreurPrixHT;
 
 public class ControleNouveauProduit {
 	
@@ -10,25 +10,31 @@ public class ControleNouveauProduit {
 	private boolean AjouterProduit(I_Produit produit, I_Catalogue catalogue) {
 		return catalogue.addProduit(produit);
 	}*/
-	public static String ErreurPrixHT = ("Il faut entrer un nombre\n");
+	public static String ErreurPrixHT = ("Veuillez entrer un nombre respectant la forme suivante : X.XX\n");
+	public static String ErreurQte = ("Veuillez entrer un nombre entier\n");
+	public static boolean BoolErreurPrixHT = false;
+	public static boolean BoolErreurQte = false;
 
 	public static boolean AjouterProduit(String nom, String stringPrixHT, String stringQte, I_Catalogue catalogue) {
 		double prixHT=0;
-		int qte=0;
+		int Qte=0;
 		try {
 			prixHT = Double.parseDouble(stringPrixHT);
 		} catch (Exception e) {
-			//String erreur = ("Il faut entrer un nombre\n");
+//			String erreur = ("Il faut entrer un nombre\n");				//Ancienne méthode message erreur
+			BoolErreurPrixHT = true;
 			System.out.print(ErreurPrixHT);
-			new FenetreNouveauProduitErreurPrixHT();
+			new FenetreMessageErreur();
 		}
 		try {
-			qte = Integer.parseInt(stringQte);
+			Qte = Integer.parseInt(stringQte);
 		} catch (Exception e) {
-			System.out.print("il Faut entrer un nombre entier\n");
+			BoolErreurQte = true;
+			System.out.print(ErreurQte);
+			new FenetreMessageErreur();
 		}
 		
-		return catalogue.addProduit(nom, prixHT, qte);
+		return catalogue.addProduit(nom, prixHT, Qte);
 	}
 
 }
