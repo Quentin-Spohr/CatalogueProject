@@ -8,8 +8,7 @@ import metier.Catalogue;
 import metier.I_Catalogue;
 
 
-public class FenetrePrincipale extends JFrame implements ActionListener,
-		WindowListener {
+public class FenetrePrincipale extends JFrame implements ActionListener,WindowListener {
 
 	/**
 	 * 
@@ -138,16 +137,17 @@ public class FenetrePrincipale extends JFrame implements ActionListener,
 	
 	public static void main(String[] args) {
 		new FenetrePrincipale();
+				
 		//...Mais plutôt là. C'est pour eviter que le "cat.addProduit" ne se déclenche à chaque fois que l'on revient sur la fenétre principale,
 		//je te laisse tester la différence des 2 méthodes de déclaration "catalogue+produit" en testant la fenétre "supprimer produit" si tu ne vois ce que je veux dire.
-		
+		/*
 		I_Catalogue cat=Catalogue.getCatalogue();
 		cat.addProduit("Treets", 10, 1);
 		cat.addProduit("Mars", 2, 5);
 		cat.addProduit("Coca", 1, 15);
 		cat.addProduit("Crayon", 7, 2);
 		cat.addProduit("Bepis", 3, 1);
-		
+		*/
 	}
 
 }

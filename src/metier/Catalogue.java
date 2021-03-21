@@ -6,27 +6,28 @@ import java.util.List;
 
 public class Catalogue implements I_Catalogue{
 	
-	private List<I_Produit> produits;
+	private List<I_Produit> lesProduits;
 	private static Catalogue catalogue; 
 
 	public static Catalogue getCatalogue() {
 		if (catalogue == null) {
 			catalogue=new Catalogue();
 			return catalogue;
-		}else {
+		} else {
 			return catalogue;
 		}
 		
 	}
 	
 	public Catalogue() {
-		this.produits= new ArrayList<>();
+		this.lesProduits= new ArrayList<>();
+		catalogueTest();
 	}
 
 	@Override
 	public boolean addProduit(I_Produit produit) {
-		if (produit!=null && (produit.getPrixUnitaireHT()> 0) && (produit.getQuantite()>= 0) && !(estDansleCatalogue(produit.getNom()))) {
-			produits.add(produit);
+		if (produit!=null && (produit.getPrixUnitaireHT()> 0.0) && (produit.getQuantite()>= 0) && !(estDansleCatalogue(produit.getNom()))) {
+			lesProduits.add(produit);
 			return true;
 		}		
 		return false;
@@ -34,7 +35,7 @@ public class Catalogue implements I_Catalogue{
 
 	@Override
 	public boolean addProduit(String nom, double prix, int qte) {
-		Produit newProduit = new Produit(nom,prix,qte);
+		I_Produit newProduit = new Produit(nom,prix,qte);
 		if(estDansleCatalogue(newProduit.getNom())) {
 			return false;
 		}
@@ -58,7 +59,7 @@ public class Catalogue implements I_Catalogue{
 	@Override
 	public boolean removeProduit(String nom) {
 		if (estDansleCatalogue(nom)) {
-			return produits.remove(getProduitByName(nom));
+			return lesProduits.remove(getProduitByName(nom));
 		}
 		return false;
 	}
@@ -87,15 +88,15 @@ public class Catalogue implements I_Catalogue{
 
 	@Override
 	public String[] getNomProduits() {	
-		if (produits.size()!=0) {
-			String[] nomsProduits =new String[produits.size()];
+		if (lesProduits.size()!=0) {
+			String[] nomsProduits =new String[lesProduits.size()];
 			for (int i = 0; i < nomsProduits.length; i++) {
-				nomsProduits[i]=produits.get(i).getNom();
+				nomsProduits[i]=lesProduits.get(i).getNom();
 			}
 			String tmp;
 			
-			for (int i=0; i < produits.size(); i++) {
-	            for (int j=i+1; j < produits.size(); j++) {
+			for (int i=0; i < lesProduits.size(); i++) {
+	            for (int j=i+1; j < lesProduits.size(); j++) {
 	                if (nomsProduits[i].compareTo(nomsProduits[j]) > 0) {
 	                    tmp = nomsProduits[i];
 	                    nomsProduits[i] = nomsProduits[j];
@@ -112,7 +113,7 @@ public class Catalogue implements I_Catalogue{
 	@Override
 	public double getMontantTotalTTC() {
 		double montantTotalTTC=0;
-		for (I_Produit produit : produits) {
+		for (I_Produit produit : lesProduits) {
 			montantTotalTTC=montantTotalTTC+produit.getPrixStockTTC();
 		}
 		
@@ -121,14 +122,14 @@ public class Catalogue implements I_Catalogue{
 
 	@Override
 	public void clear() {
-		produits.clear();	
+		lesProduits.clear();	
 	}
 	
 	@Override
 	public String toString() {
 		DecimalFormat df = new DecimalFormat("0.00");
 		String catToString="";
-		for (I_Produit produit : produits) {
+		for (I_Produit produit : lesProduits) {
 			catToString=catToString + produit.toString()+"\n";	
 		}	
 		catToString=catToString + ("\n" + "Montant total TTC du stock : "+df.format(getMontantTotalTTC())+" €");
@@ -137,7 +138,7 @@ public class Catalogue implements I_Catalogue{
 	
 	public boolean estDansleCatalogue (String nomProduit) {
 		boolean estDansleCatalogue =false;
-		for (I_Produit produit : produits) {
+		for (I_Produit produit : lesProduits) {
 			if (produit.getNom().equals(nomProduit)) {
 				estDansleCatalogue=true;
 				break;
@@ -147,7 +148,7 @@ public class Catalogue implements I_Catalogue{
 	}
 	
 	public I_Produit getProduitByName (String nomProduit) {		
-		for (I_Produit produit : produits) {
+		for (I_Produit produit : lesProduits) {
 			if (produit.getNom().equals(nomProduit)) {
 				return produit;				
 			}
@@ -156,6 +157,12 @@ public class Catalogue implements I_Catalogue{
 	}
 	
 	
-	
+	public void catalogueTest() {
+		this.addProduit("Treets", 10, 1);
+		this.addProduit("Mars", 2, 5);
+		this.addProduit("Coca", 1, 15);
+		this.addProduit("Crayon", 7, 2);
+		this.addProduit("Bepis", 3, 1);
+	}
 	
 }

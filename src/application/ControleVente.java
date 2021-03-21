@@ -11,6 +11,8 @@ public class ControleVente {
 		} catch (Exception e) {
 			System.out.print("il Faut entrer un nombre entier");
 		}
+		//récupere quantité du produit dans catalogue
+		//catalogue.getProduitByName();
 		catalogue.vendreStock(nom, qte);
 		return true;
 	}

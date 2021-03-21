@@ -9,8 +9,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
-import application.ControleNouveauProduit;
-
 public class FenetreMessageErreur extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
@@ -18,7 +16,7 @@ public class FenetreMessageErreur extends JFrame implements ActionListener {
 	private JTextArea labErreur;
 	private Container contentPane = getContentPane();
 
-	public FenetreMessageErreur() {
+	public FenetreMessageErreur(String msgErreur) {
 		
 		setTitle("Erreur Prix HT");
 		setBounds(500, 500, 300, 250);
@@ -31,7 +29,7 @@ public class FenetreMessageErreur extends JFrame implements ActionListener {
 		contentPane.add(btOK);
 		btOK.addActionListener(this);
 		
-		if (ControleNouveauProduit.BoolErreurPrixHT == true)
+/*		if (ControleNouveauProduit.BoolErreurPrixHT == true)
 		{
 			labErreur = new JTextArea(ControleNouveauProduit.ErreurPrixHT);
 			labErreur.setLineWrap(true);
@@ -40,13 +38,14 @@ public class FenetreMessageErreur extends JFrame implements ActionListener {
 			contentPane.add(labErreur);	
 		}
 		if (ControleNouveauProduit.BoolErreurQte == true)
-		{
-			labErreur = new JTextArea(ControleNouveauProduit.ErreurQte);
-			labErreur.setLineWrap(true);
-			labErreur.setEditable(false);
-			labErreur.setBounds(37, 42, 213, 73);
-			contentPane.add(labErreur);	
-		}
+		{}
+*/		
+		labErreur = new JTextArea(msgErreur);
+		labErreur.setLineWrap(true);
+		labErreur.setEditable(false);
+		labErreur.setBounds(37, 42, 213, 73);
+		contentPane.add(labErreur);	
+		
 		
 		setVisible(true);
 	}
