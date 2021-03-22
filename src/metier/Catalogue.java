@@ -136,7 +136,7 @@ public class Catalogue implements I_Catalogue{
 		return catToString;
 	}
 	
-	public boolean estDansleCatalogue (String nomProduit) {
+	private boolean estDansleCatalogue (String nomProduit) {
 		boolean estDansleCatalogue =false;
 		for (I_Produit produit : lesProduits) {
 			if (produit.getNom().equals(nomProduit)) {
@@ -147,13 +147,13 @@ public class Catalogue implements I_Catalogue{
 		return estDansleCatalogue;
 	}
 	
-	public I_Produit getProduitByName (String nomProduit) {		
+	private I_Produit getProduitByName (String nomProduit) {		
 		for (I_Produit produit : lesProduits) {
 			if (produit.getNom().equals(nomProduit)) {
 				return produit;				
 			}
 		}
-		return null;
+		return null;		
 	}
 	
 	

@@ -1,6 +1,7 @@
 package application;
 
 import metier.I_Catalogue;
+import metier.Catalogue;
 import presentation.FenetreMessageErreur;
 
 public class ControleVente {
@@ -19,10 +20,10 @@ public class ControleVente {
 			System.out.print(msgErreurQte);
 			new FenetreMessageErreur(msgTitreErreurQte, msgErreurQte);
 		}
-		
+			
 		if(erreurDansSaisie == false)
-			catalogue.vendreStock(nom, qte);
+			return catalogue.vendreStock(nom, qte);
 		
-		return true;
+		return false;
 	}
 }
