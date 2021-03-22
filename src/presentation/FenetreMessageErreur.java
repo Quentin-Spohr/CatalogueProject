@@ -16,9 +16,9 @@ public class FenetreMessageErreur extends JFrame implements ActionListener {
 	private JTextArea labErreur;
 	private Container contentPane = getContentPane();
 
-	public FenetreMessageErreur(String msgErreur) {
+	public FenetreMessageErreur(String msgTitreErreur, String msgErreur) {
 		
-		setTitle("Erreur Prix HT");
+		setTitle(msgTitreErreur);
 		setBounds(500, 500, 300, 250);
 
 		contentPane.setBackground(Color.LIGHT_GRAY);
@@ -28,18 +28,7 @@ public class FenetreMessageErreur extends JFrame implements ActionListener {
 		btOK.setBounds(92, 177, 89, 23);
 		contentPane.add(btOK);
 		btOK.addActionListener(this);
-		
-/*		if (ControleNouveauProduit.BoolErreurPrixHT == true)
-		{
-			labErreur = new JTextArea(ControleNouveauProduit.ErreurPrixHT);
-			labErreur.setLineWrap(true);
-			labErreur.setEditable(false);
-			labErreur.setBounds(37, 42, 213, 73);
-			contentPane.add(labErreur);	
-		}
-		if (ControleNouveauProduit.BoolErreurQte == true)
-		{}
-*/		
+				
 		labErreur = new JTextArea(msgErreur);
 		labErreur.setLineWrap(true);
 		labErreur.setEditable(false);
@@ -55,9 +44,9 @@ public class FenetreMessageErreur extends JFrame implements ActionListener {
 		if (e.getSource() == btOK) {
 			labErreur.setText("");
 			contentPane.remove(labErreur);	
+			this.dispose();
 		}
 		
-		this.dispose();
 	}
 	
 }

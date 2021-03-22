@@ -49,9 +49,9 @@ public class FenetreAchat extends JFrame implements ActionListener {
 		if (e.getSource() == btAchat) {
 			I_Catalogue cat=Catalogue.getCatalogue();
 			ControleAchat.acheterProduit((String)combo.getSelectedItem(),txtQuantite.getText(),cat);
+			this.dispose();
 		}
 		
-		this.dispose();
 	}
 
 }

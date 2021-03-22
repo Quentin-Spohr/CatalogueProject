@@ -49,7 +49,10 @@ public class FenetreAffichage extends JFrame implements ActionListener {
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		this.dispose();
+		if (e.getSource() == btOK) {
+			this.dispose();
+		}
+
 	}
 
 }

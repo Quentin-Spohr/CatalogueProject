@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import application.ControleSuppression;
+import application.ControleSuppressionProduit;
 import metier.Catalogue;
 import metier.I_Catalogue;
 
@@ -15,7 +15,7 @@ public class FenetreSuppressionProduit extends JFrame implements ActionListener 
 	 */
 	private static final long serialVersionUID = 1L;
 	private JButton btSupprimer;
-	private JComboBox<String> combo;
+	public static JComboBox<String> combo;
 	
 	public FenetreSuppressionProduit() {
 		
@@ -44,11 +44,10 @@ public class FenetreSuppressionProduit extends JFrame implements ActionListener 
 		if (e.getSource() == btSupprimer) {
 			I_Catalogue cat=Catalogue.getCatalogue();
 			int index = combo.getSelectedIndex();
-			ControleSuppression.supprimerProduit((String)combo.getSelectedItem(), cat);
+			ControleSuppressionProduit.supprimerProduit((String)combo.getSelectedItem(), cat);
 			combo.removeItemAt(index);
+			this.dispose();
 		}
-		
-		this.dispose();
 	}
 
 }

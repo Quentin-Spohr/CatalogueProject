@@ -10,43 +10,47 @@ public class ControleNouveauProduit {
 	private boolean AjouterProduit(I_Produit produit, I_Catalogue catalogue) {
 		return catalogue.addProduit(produit);
 	}*/
-	public static String ErreurPrixHT = ("Veuillez entrer un nombre respectant la forme suivante : X.XX\n");
-	public static String ErreurQte = ("Veuillez entrer un nombre entier\n");
-	//public static String MsgErreur;
-	//public static boolean BoolErreurPrixHT = false;
-	//public static boolean BoolErreurQte = false;
 
 	public static boolean AjouterProduit(String nom, String stringPrixHT, String stringQte, I_Catalogue catalogue) {
+		
 		double prixHT=0;
-		int Qte=0;
-		boolean erreurDansSaisie=false;
+		int qte=0;
+		
+		boolean erreurDansSaisie = false;
+		String msgErreurPrixHT = ("Veuillez entrer un nombre respectant la forme suivante : X.XX\n");
+		String msgErreurQte = ("Veuillez entrer un nombre entier qui soit positif\n");
+		String msgTitreErreurPrixHT = ("Erreur Prix HT");
+		String msgTitreErreurQte = ("Erreur Qte");
+		
 		try {
 			prixHT = Double.parseDouble(stringPrixHT);
 		} catch (Exception e) {
 //			String erreur = ("Il faut entrer un nombre\n");				//Ancienne méthode message erreur
-//			BoolErreurPrixHT = true;
-//			MsgErreur = ErreurPrixHT;
+
 			erreurDansSaisie = true;
-			System.out.print(ErreurPrixHT);
-			new FenetreMessageErreur(ErreurPrixHT);
-			System.out.print(prixHT+"\n");
-			System.out.print(Qte+"\n");
-			System.out.print("catch1\n");
+			System.out.print(msgErreurPrixHT);
+			new FenetreMessageErreur(msgTitreErreurPrixHT, msgErreurPrixHT);
+			
+//			System.out.print(prixHT+"\n");
+//			System.out.print(Qte+"\n");
+//			System.out.print("catch1\n");
 		}
 		try {
-			Qte = Integer.parseInt(stringQte);
+			qte = Integer.parseUnsignedInt(stringQte);
 		} catch (Exception e) {
 			erreurDansSaisie = true;
-			//BoolErreurQte = true;
-			System.out.print(ErreurQte);
-			new FenetreMessageErreur(ErreurQte);
-			System.out.print(prixHT+"\n");
-			System.out.print(Qte+"\n");
-			System.out.print("catch2\n");
+			System.out.print(msgErreurQte);
+			new FenetreMessageErreur(msgTitreErreurQte, msgErreurQte);
+			
+//			System.out.print(prixHT+"\n");
+//			System.out.print(Qte+"\n");
+//			System.out.print("catch2\n");
 		}
-		System.out.print("après\n");
-		if( erreurDansSaisie==false)
-					return catalogue.addProduit(nom, prixHT, Qte);
+		
+//		System.out.print("après\n");
+		
+		if(erreurDansSaisie == false)
+			return catalogue.addProduit(nom, prixHT, qte);
 		
 		return false;
 	}

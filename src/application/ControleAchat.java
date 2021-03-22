@@ -1,17 +1,28 @@
 package application;
 
 import metier.I_Catalogue;
+import presentation.FenetreMessageErreur;
 
 public class ControleAchat {
 
 	public static boolean acheterProduit(String nom, String stringQte, I_Catalogue catalogue) {
+		
 		int qte=0;
+		boolean erreurDansSaisie = false;
+		String msgErreurQte = ("Veuillez entrer un nombre entier qui soit positif\n");
+		String msgTitreErreurQte = ("Erreur Qte");
+		
 		try {
-			qte = Integer.parseInt(stringQte);
+			qte = Integer.parseUnsignedInt(stringQte);
 		} catch (Exception e) {
-			System.out.print("il Faut entrer un nombre entier");
+			erreurDansSaisie = true;
+			System.out.print(msgErreurQte);
+			new FenetreMessageErreur(msgTitreErreurQte, msgErreurQte);
 		}
-		catalogue.acheterStock(nom, qte);
+		
+		if(erreurDansSaisie == false)
+			catalogue.acheterStock(nom, qte);
+		
 		return true;
 	}
 }

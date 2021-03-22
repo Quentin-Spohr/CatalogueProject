@@ -48,9 +48,9 @@ public class FenetreVente extends JFrame implements ActionListener {
 		if (e.getSource() == btVente) {
 			I_Catalogue cat=Catalogue.getCatalogue();
 			ControleVente.vendreProduit((String)combo.getSelectedItem(),txtQuantite.getText(),cat);
+			this.dispose();
 		}
 		
-		this.dispose();
 	}
 
 }

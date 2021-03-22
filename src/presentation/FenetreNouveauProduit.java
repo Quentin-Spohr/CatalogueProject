@@ -49,7 +49,7 @@ public class FenetreNouveauProduit extends JFrame implements ActionListener {
 		labQte.setBounds(99, 121, 100, 14);
 		contentPane.add(labQte);
 		txtQte = new JTextField(15);
-		txtQte.setToolTipText("Le nombre doit être obligatoirement positif");
+		txtQte.setToolTipText("Le nombre doit être obligatoirement un entier positif");
 		txtQte.setText("0");
 		txtQte.setBounds(73, 146, 126, 20);
 		contentPane.add(txtQte);
@@ -73,9 +73,9 @@ public class FenetreNouveauProduit extends JFrame implements ActionListener {
 		if (e.getSource() == btValider) {
 			I_Catalogue cat=Catalogue.getCatalogue();
 			ControleNouveauProduit.AjouterProduit(txtNom.getText(), txtPrixHT.getText(), txtQte.getText(),cat);
+			this.dispose();
 		}
 		
-		this.dispose();
 	}
 
 }
